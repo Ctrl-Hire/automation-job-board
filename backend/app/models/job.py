@@ -35,7 +35,10 @@ class Job(Base):
     estimated_hours = Column(Integer)
     deadline = Column(Date)
 
-    status = Column(Enum(JobStatus), default=JobStatus.OPEN)
+    status = Column(
+        Enum(JobStatus, values_callable=lambda obj: [e.value for e in obj]),
+        default=JobStatus.OPEN,
+    )
 
     # AI flag
     ai_generated_description = Column(Boolean, default=False)

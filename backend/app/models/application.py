@@ -27,7 +27,10 @@ class Application(Base):
     proposed_rate = Column(Integer)
     estimated_completion_days = Column(Integer)
 
-    status = Column(Enum(ApplicationStatus), default=ApplicationStatus.PENDING)
+    status = Column(
+        Enum(ApplicationStatus, values_callable=lambda obj: [e.value for e in obj]),
+        default=ApplicationStatus.PENDING,
+    )
 
     # AI features
     ai_match_score = Column(Float)

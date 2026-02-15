@@ -3,18 +3,18 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     # Database
-    database_url: str = "postgresql+psycopg://aitb:aitb_dev_password@localhost:5432/aitb_jobboard"
+    DATABASE_URL: str = "postgresql+psycopg://aitb:aitb_dev_password@localhost:5432/aitb_jobboard"
 
     # Auth
-    jwt_secret_key: str = "hackathon-secret-key-change-later"
-    jwt_algorithm: str = "HS256"
-    access_token_expire_minutes: int = 60 * 24  # 24 hours for hackathon convenience
+    JWT_SECRET_KEY: str = "hackathon-secret-key-change-later"
+    JWT_ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24  # 24 hours for hackathon convenience
 
     # OpenRouter
-    openrouter_api_key: str = ""
+    OPENROUTER_API_KEY: str = ""
 
     # App
-    debug: bool = True
+    DEBUG: bool = True
 
     class Config:
         env_file = ".env"
