@@ -7,7 +7,7 @@ from app.config import settings
 
 class AIService:
     def __init__(self):
-        self.api_key = settings.openrouter_api_key
+        self.api_key = settings.OPENROUTER_API_KEY
         self.base_url = "https://openrouter.ai/api/v1"
         self.model = "anthropic/claude-3-haiku-20240307"
 
