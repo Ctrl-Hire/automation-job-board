@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     # Database
-    database_url: str = "postgresql://aitb:aitb_dev_password@localhost:5432/aitb_jobboard"
+    database_url: str = "postgresql+psycopg://aitb:aitb_dev_password@localhost:5432/aitb_jobboard"
 
     # Auth
     jwt_secret_key: str = "hackathon-secret-key-change-later"

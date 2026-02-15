@@ -4,12 +4,11 @@ services:
   db:
     image: postgres:15
     container_name: aitb_postgres
+    network_mode: host
     environment:
       POSTGRES_USER: aitb
       POSTGRES_PASSWORD: aitb_dev_password
       POSTGRES_DB: aitb_jobboard
-    ports:
-      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
